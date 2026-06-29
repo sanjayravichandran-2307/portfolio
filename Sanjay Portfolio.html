@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sanjay R. — Engineering Portfolio</title>
+<meta name="description" content="Process Engineer at Fleetguard Filters (Cummins Group). Six Sigma Green Belt. APQP, VSM, 8D/RCA specialist. Open to Tier-1 MNC opportunities.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0B1629;--navy-light:#132040;--navy-mid:#1C2E50;
+  --gold:#C9A84C;--gold-light:#E8C76A;--gold-dim:#7A6230;
+  --white:#F4F2ED;--muted:#8A96B0;--border:rgba(201,168,76,0.18);
+  --card:#0F1D38;
+}
+html{scroll-behavior:smooth}
+body{background:var(--navy);color:var(--white);font-family:'Inter',sans-serif;font-size:15px;line-height:1.6;min-height:100vh}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(11,22,41,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:14px 48px;display:flex;justify-content:space-between;align-items:center}
+.nav-name{font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;color:var(--gold-light)}
+.nav-links{display:flex;gap:24px}
+.nav-links a{font-size:12px;color:var(--muted);text-decoration:none;letter-spacing:0.05em;transition:color 0.2s}
+.nav-links a:hover{color:var(--gold)}
+
+/* HERO */
+.hero{padding:64px 48px 52px;border-bottom:1px solid var(--border);position:relative;overflow:hidden;max-width:1100px;margin:0 auto}
+.hero::before{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(201,168,76,0.07) 0%,transparent 65%);pointer-events:none}
+.eyebrow{font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:500;letter-spacing:0.14em;color:var(--gold);text-transform:uppercase;margin-bottom:16px}
+.hero-name{font-family:'Space Grotesk',sans-serif;font-size:48px;font-weight:700;color:var(--white);line-height:1.1;margin-bottom:8px}
+.hero-title{font-size:17px;color:var(--gold-light);font-weight:500;margin-bottom:20px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:22px;margin-bottom:30px}
+.hero-meta span{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:7px}
+.hero-meta span::before{content:'';width:5px;height:5px;background:var(--gold);border-radius:50%;flex-shrink:0}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{font-size:11px;font-weight:500;padding:5px 12px;border-radius:100px;border:1px solid var(--border);color:var(--gold-light);background:rgba(201,168,76,0.07);letter-spacing:0.03em}
+
+/* CONTAINER */
+.container{max-width:1100px;margin:0 auto;padding:0 48px}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--border)}
+.stat{padding:28px 32px;border-right:1px solid var(--border);text-align:center}
+.stat:last-child{border-right:none}
+.stat-num{font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:700;color:var(--gold-light);line-height:1;margin-bottom:5px}
+.stat-lbl{font-size:12px;color:var(--muted);line-height:1.4}
+
+/* SECTION */
+.section{padding:48px 0;border-bottom:1px solid var(--border)}
+.section-header{display:flex;align-items:center;gap:14px;margin-bottom:28px}
+.section-line{width:28px;height:2px;background:var(--gold);flex-shrink:0}
+.section-title{font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:0.12em;color:var(--gold)}
+
+/* PROJECTS */
+.projects-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;cursor:pointer;transition:border-color 0.2s,background 0.2s}
+.card:hover{border-color:rgba(201,168,76,0.45);background:var(--navy-mid)}
+.card.active{border-color:var(--gold);background:var(--navy-mid)}
+.card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:10px}
+.card-name{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;color:var(--white);margin-bottom:7px;line-height:1.3}
+.card-type{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold-dim);padding:3px 9px;border-radius:4px;background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.15);white-space:nowrap}
+.card-desc{font-size:13px;color:var(--muted);line-height:1.55;margin-bottom:14px}
+.metrics{display:flex;gap:14px;flex-wrap:wrap}
+.metric{font-size:12px;font-weight:500;color:var(--gold-light);display:flex;align-items:center;gap:5px}
+.metric::before{content:'';width:4px;height:4px;background:var(--gold);border-radius:50%}
+
+/* DETAIL */
+.detail{display:none;background:var(--navy-mid);border:1px solid var(--gold);border-radius:12px;padding:28px;margin-top:18px;grid-column:1/-1;position:relative}
+.detail.open{display:block}
+.detail-title{font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;color:var(--gold-light);margin-bottom:18px;padding-right:40px}
+.detail-close{position:absolute;top:20px;right:20px;background:none;border:1px solid var(--border);color:var(--muted);font-size:12px;padding:5px 12px;border-radius:6px;cursor:pointer;transition:all 0.2s}
+.detail-close:hover{border-color:var(--gold);color:var(--gold)}
+.detail-section{margin-bottom:16px}
+.detail-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.09em;color:var(--gold-dim);margin-bottom:6px}
+.detail-text{font-size:13px;color:var(--muted);line-height:1.65}
+.detail-outcome{font-size:13px;color:var(--gold-light);line-height:1.65}
+.detail-list{list-style:none;display:flex;flex-direction:column;gap:6px}
+.detail-list li{font-size:13px;color:var(--muted);padding-left:18px;position:relative;line-height:1.55}
+.detail-list li::before{content:'→';position:absolute;left:0;color:var(--gold);font-size:11px;top:2px}
+
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.skill-group{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px}
+.skill-group-title{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.09em;color:var(--gold);margin-bottom:14px}
+.skill-item{display:flex;align-items:center;justify-content:space-between;margin-bottom:9px}
+.skill-name{font-size:12.5px;color:var(--muted)}
+.skill-bar-wrap{width:72px;height:3px;background:rgba(255,255,255,0.07);border-radius:2px;overflow:hidden}
+.skill-bar{height:100%;background:var(--gold);border-radius:2px}
+
+/* FOOTER */
+footer{padding:32px 48px;text-align:center;border-top:1px solid var(--border)}
+.footer-cta{font-size:13px;color:var(--muted);margin-bottom:12px}
+.footer-cta span{color:var(--gold)}
+.footer-note{font-size:11px;color:rgba(138,150,176,0.5)}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  nav{padding:12px 20px}
+  .hero{padding:40px 20px 36px}
+  .hero-name{font-size:32px}
+  .container{padding:0 20px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stat{padding:20px}
+  .projects-grid{grid-template-columns:1fr}
+  .skills-grid{grid-template-columns:1fr}
+  .section{padding:36px 0}
+  footer{padding:24px 20px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-name">Sanjay R.</div>
+  <div class="nav-links">
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="eyebrow">Engineering Portfolio</div>
+  <div class="hero-name">Sanjay R.</div>
+  <div class="hero-title">Process Engineer · Fleetguard Filters Pvt. Ltd. (Cummins Group)</div>
+  <div class="hero-meta">
+    <span>Hosur, Tamil Nadu</span>
+    <span>2.5 years experience</span>
+    <span>Six Sigma Green Belt (AIGPE)</span>
+    <span>M.Tech Design Engg · BITS Pilani</span>
+  </div>
+  <div class="tags">
+    <span class="tag">APQP / PPAP</span><span class="tag">PFMEA</span><span class="tag">VSM & Lean</span>
+    <span class="tag">GD&T</span><span class="tag">SPC / OEE</span><span class="tag">8D / RCA</span>
+    <span class="tag">Minitab</span><span class="tag">ANSYS</span><span class="tag">Creo</span>
+    <span class="tag">Oracle ERP</span>
+  </div>
+</div>
+
+<div class="container">
+  <div class="stats">
+    <div class="stat"><div class="stat-num">15%</div><div class="stat-lbl">Efficiency gain on MBP line</div></div>
+    <div class="stat"><div class="stat-num">18%</div><div class="stat-lbl">Cycle time reduction achieved</div></div>
+    <div class="stat"><div class="stat-num">50%</div><div class="stat-lbl">Manpower reduction on automation</div></div>
+    <div class="stat"><div class="stat-num">5+</div><div class="stat-lbl">Improvement projects delivered</div></div>
+  </div>
+
+  <div class="section" id="projects">
+    <div class="section-header"><div class="section-line"></div><div class="section-title">Key Projects</div></div>
+    <div class="projects-grid" id="grid">
+
+      <div class="card" onclick="toggle(0)">
+        <div class="card-top"><div class="card-name">Carton Automation Line Design</div><div class="card-type">Automation</div></div>
+        <div class="card-desc">End-of-line automation for 800×790×520mm master cartons at 850 parts/hr — erection, taping, labelling, checkweighing, robotic palletising, and stretch wrapping.</div>
+        <div class="metrics"><div class="metric">850 parts/hr throughput</div><div class="metric">50% manpower reduction</div></div>
+      </div>
+
+      <div class="card" onclick="toggle(1)">
+        <div class="card-top"><div class="card-name">VSM & Manpower Optimisation</div><div class="card-type">Lean / VSM</div></div>
+        <div class="card-desc">Value stream mapping of airline filter line — identified bottlenecks, proposed 4 station merges and 2 headcount reductions targeting 38.2% labor cost reduction.</div>
+        <div class="metrics"><div class="metric">35 → 28 operators</div><div class="metric">38.2% labor reduction</div></div>
+      </div>
+
+      <div class="detail" id="d0">
+        <button class="detail-close" onclick="close_detail(event)">✕ Close</button>
+        <div class="detail-title">Carton Automation Line Design</div>
+        <div class="detail-section"><div class="detail-label">Problem</div><div class="detail-text">Manual end-of-line packaging for large master cartons was a bottleneck at 850 parts/hour, requiring high headcount and prone to ergonomic risk.</div></div>
+        <div class="detail-section"><div class="detail-label">Approach</div><ul class="detail-list"><li>Designed full automation sequence: erection → taping → labelling → checkweighing → palletising → wrapping</li><li>Identified standard Indian erectors undersized; sourced Gurki, Durapak, Schneider large-format alternatives</li><li>Created RFQ and vendor comparison matrix for capital approval</li></ul></div>
+        <div class="detail-section"><div class="detail-label">Outcome</div><div class="detail-outcome">50% reduction in operators. Eliminated ergonomic risk. Consistent 850 parts/hr throughput.</div></div>
+      </div>
+
+      <div class="detail" id="d1">
+        <button class="detail-close" onclick="close_detail(event)">✕ Close</button>
+        <div class="detail-title">VSM & Manpower Optimisation — Airline Filter Line</div>
+        <div class="detail-section"><div class="detail-label">Problem</div><div class="detail-text">Airline filter line running at 35 operators with hidden waste in movement, waiting, and over-processing across stations.</div></div>
+        <div class="detail-section"><div class="detail-label">Approach</div><ul class="detail-list"><li>Conducted full current-state VSM across all stations</li><li>Identified 4 stations suitable for merge without cycle time impact</li><li>Proposed 2 direct headcount reductions via task redistribution; built future-state VSM</li></ul></div>
+        <div class="detail-section"><div class="detail-label">Outcome</div><div class="detail-outcome">Target reduction from 35 to 28 operators — 38.2% labor cost reduction. Roadmap submitted to management.</div></div>
+      </div>
+
+      <div class="card" onclick="toggle(2)">
+        <div class="card-top"><div class="card-name">Sealring Bonding Defect (8D)</div><div class="card-type">8D / RCA</div></div>
+        <div class="card-desc">Full 8D investigation on sealring adhesive bond failures. Root cause: uncontrolled water bed moisture. Implemented pin-type moisture meter as process control.</div>
+        <div class="metrics"><div class="metric">Root cause identified</div><div class="metric">Defect rate → zero</div></div>
+      </div>
+
+      <div class="card" onclick="toggle(3)">
+        <div class="card-top"><div class="card-name">NDT — Replacing Destructive Pull Tests</div><div class="card-type">NDT / Quality</div></div>
+        <div class="card-desc">ROI analysis and recommendation to replace pull tests with BondMaster 1000e+ (MIA) for adhesive bonds and EPOCH 650 UT for liner seam welds.</div>
+        <div class="metrics"><div class="metric">₹75K–1.5L/month savings</div><div class="metric">8–16 month payback</div></div>
+      </div>
+
+      <div class="detail" id="d2">
+        <button class="detail-close" onclick="close_detail(event)">✕ Close</button>
+        <div class="detail-title">Sealring Bonding Defect Investigation (8D)</div>
+        <div class="detail-section"><div class="detail-label">Problem</div><div class="detail-text">Recurring sealring adhesive bond failures causing warranty risk and rework cost on the MBP Compact line.</div></div>
+        <div class="detail-section"><div class="detail-label">Approach</div><ul class="detail-list"><li>Structured 8D investigation — Trials 1 & 2 ruled out adhesive shelf life and application pressure</li><li>Trial 3 introduced pin-type moisture meter to measure water bed moisture levels</li><li>Root cause confirmed: uncontrolled moisture in bonding water bed causing inconsistent adhesive cure</li></ul></div>
+        <div class="detail-section"><div class="detail-label">Outcome</div><div class="detail-outcome">Pin-type moisture meter added as mandatory process control. Defect rate dropped to zero post-implementation.</div></div>
+      </div>
+
+      <div class="detail" id="d3">
+        <button class="detail-close" onclick="close_detail(event)">✕ Close</button>
+        <div class="detail-title">NDT System — Replacing Destructive Pull Tests</div>
+        <div class="detail-section"><div class="detail-label">Problem</div><div class="detail-text">Destructive pull testing consuming production samples, causing throughput loss and inability to inspect 100% of bonds.</div></div>
+        <div class="detail-section"><div class="detail-label">Approach</div><ul class="detail-list"><li>Evaluated Olympus BondMaster 1000e+ (MIA) for adhesive bond quality testing</li><li>Evaluated Olympus EPOCH 650 with CL5 probe (UT) for liner seam weld inspection</li><li>Built full ROI model: capital cost vs. sample savings + rework elimination</li></ul></div>
+        <div class="detail-section"><div class="detail-label">Outcome</div><div class="detail-outcome">Projected ₹75K–1.5L/month savings. 8–16 month payback. Recommendation submitted for capital approval.</div></div>
+      </div>
+
+      <div class="card" onclick="toggle(4)">
+        <div class="card-top"><div class="card-name">GSM Variance Root Cause Analysis</div><div class="card-type">SPC / Quality</div></div>
+        <div class="card-desc">Identified media paper GSM deviation (115–118 vs BOM spec 114) as root cause driving 54–78% of monthly WIP variance. Built Excel management dashboard.</div>
+        <div class="metrics"><div class="metric">54–78% WIP variance explained</div><div class="metric">Dashboard adopted</div></div>
+      </div>
+
+      <div class="card" onclick="toggle(5)">
+        <div class="card-top"><div class="card-name">MBP WDL & WIM — APQP / PPAP</div><div class="card-type">APQP / PPAP</div></div>
+        <div class="card-desc">Led full APQP and PPAP activities for MBP WDL and WIM product lines — process flow, PFMEA, control plan, MSA, capability runs, PPAP submission.</div>
+        <div class="metrics"><div class="metric">15% efficiency gain</div><div class="metric">18% cycle time reduction</div></div>
+      </div>
+
+      <div class="detail" id="d4">
+        <button class="detail-close" onclick="close_detail(event)">✕ Close</button>
+        <div class="detail-title">GSM Variance Root Cause Analysis</div>
+        <div class="detail-section"><div class="detail-label">Problem</div><div class="detail-text">Monthly WIP variance report showed unexplained material cost overruns not attributed to any known process parameter.</div></div>
+        <div class="detail-section"><div class="detail-label">Approach</div><ul class="detail-list"><li>Pulled incoming inspection data for media paper across 6 months</li><li>Found consistent GSM readings of 115–118 vs. BOM specification of 114</li><li>Statistical analysis showed this variable explained 54–78% of monthly WIP variance</li></ul></div>
+        <div class="detail-section"><div class="detail-label">Outcome</div><div class="detail-outcome">Supplier corrective action raised. BOM spec updated with tolerance band. Dashboard adopted as standard monthly review tool.</div></div>
+      </div>
+
+      <div class="detail" id="d5">
+        <button class="detail-close" onclick="close_detail(event)">✕ Close</button>
+        <div class="detail-title">MBP WDL & WIM — APQP / PPAP Execution</div>
+        <div class="detail-section"><div class="detail-label">Problem</div><div class="detail-text">New product lines required full APQP documentation and PPAP submission for customer approval within a tight timeline.</div></div>
+        <div class="detail-section"><div class="detail-label">Approach</div><ul class="detail-list"><li>Developed process flow diagrams and led PFMEA — identified 12 high-RPN failure modes with controls</li><li>Created Control Plan aligned to PFMEA; coordinated MSA studies and capability runs (Cpk)</li><li>Managed full PPAP submission pack across all required elements</li></ul></div>
+        <div class="detail-section"><div class="detail-label">Outcome</div><div class="detail-outcome">PPAP approved first time. 15% efficiency gain and 18% cycle time reduction vs. baseline process.</div></div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section" id="skills">
+    <div class="section-header"><div class="section-line"></div><div class="section-title">Skills & Tools</div></div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="skill-group-title">Process Engineering</div>
+        <div class="skill-item"><span class="skill-name">APQP / PPAP</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">PFMEA</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">VSM / Lean</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">OEE / Line Balancing</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">8D / RCA</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:82%"></div></div></div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Quality & Analysis</div>
+        <div class="skill-item"><span class="skill-name">SPC</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:78%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">GD&T</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">Minitab</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:72%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">Six Sigma (Green Belt)</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">5S / Kaizen</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div></div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Software & Design</div>
+        <div class="skill-item"><span class="skill-name">Creo (PTC)</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:70%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">ANSYS FEM</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:68%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">Oracle ERP</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:65%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">MATLAB</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:62%"></div></div></div>
+        <div class="skill-item"><span class="skill-name">MS Excel (Advanced)</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="contact" style="border-bottom:none">
+    <div class="section-header"><div class="section-line"></div><div class="section-title">Open To Opportunities</div></div>
+    <p style="font-size:14px;color:var(--muted);max-width:600px;line-height:1.7;">
+      Currently targeting Process / Manufacturing / Quality Engineering roles at Tier-1 MNCs.
+      Target CTC: 9–9.5 LPA. Available from Sep–Oct 2026.
+    </p>
+    <div style="margin-top:20px;display:flex;flex-wrap:wrap;gap:10px">
+      <span class="tag">Bosch</span><span class="tag">Caterpillar</span><span class="tag">Cummins India</span><span class="tag">Mann+Hummel</span><span class="tag">Continental</span>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-cta">Sanjay R. · <span>Process Engineer</span> · Fleetguard Filters (Cummins Group)</div>
+  <div class="footer-note">Built with HTML · Hosted on GitHub Pages</div>
+</footer>
+
+<script>
+let active = -1;
+const pairs = [[0,1],[2,3],[4,5]];
+
+function toggle(idx) {
+  const d = document.getElementById('d'+idx);
+  const cards = document.querySelectorAll('.card');
+  if (active === idx) { close_all(); return; }
+  close_all();
+  active = idx;
+  cards[idx].classList.add('active');
+  d.classList.add('open');
+  setTimeout(()=>d.scrollIntoView({behavior:'smooth',block:'nearest'}),50);
+}
+
+function close_all() {
+  active = -1;
+  document.querySelectorAll('.card').forEach(c=>c.classList.remove('active'));
+  document.querySelectorAll('.detail').forEach(d=>d.classList.remove('open'));
+}
+
+function close_detail(e) { e.stopPropagation(); close_all(); }
+</script>
+</body>
+</html>
